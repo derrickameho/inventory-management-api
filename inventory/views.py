@@ -16,7 +16,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     filter_backends = [
         DjangoFilterBackend,
         filters.SearchFilter,
+        filters.OrderingFilter,
     ]
 
     filterset_fields = ['category', 'price']
     search_fields = ['name', 'sku']
+    ordering_fields = ['price', 'quantity', 'created_at']
